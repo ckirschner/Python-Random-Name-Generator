@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 import random
 import string
+from datetime import datetime
+import pathlib
 
 FirstNames    = './Names/FirstNames.txt'
 MiddleNames   = './Names/MiddleNames.txt'
@@ -133,4 +135,8 @@ def ShortAddress():
 
 
 if __name__ == '__main__':
-    print(Full(), ' works at ', Company(), ' lives at ', Address(), StateCode(), Country())
+    time = datetime.now().strftime("%Y-%m-%d %H%M%S")
+    filenamepath = pathlib.Path(f"c:\\temp\\random data {time}.txt")
+    print(filenamepath)
+    for x in range (0,1000):
+        print(Full(), ' works at ', Company(), ' lives at ', Address(), StateCode(), Country(), file=open(filenamepath, 'a'))
